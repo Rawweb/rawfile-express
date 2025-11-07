@@ -9,14 +9,14 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#project', label: 'Project' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/project', label: 'Project' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-primary-dark/30 z-50 border-b border-secondary-light/70 shadow-md">
+    <nav className="fixed top-0 left-0 right-0 bg-primary-dark/30 backdrop-blur-md z-50 border-b border-secondary-light/70 shadow-md">
       <div className="container flex items-center justify-between h-18 text-secondary-light">
         {/* Logo */}
         <Link to="/" className="flex gap-2 items-center cursor-pointer group">
@@ -29,11 +29,11 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav Items */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link, index) => (
-            <a
+            <Link
               key={index}
-              href={link.href}
+              to={link.href}
               onClick={() => setActiveLink(link.href)}
               className={`relative text-sm font-medium transition-colors ${
                 activeLink === link.href
@@ -42,7 +42,7 @@ const Navbar = () => {
               }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -78,8 +78,8 @@ const Navbar = () => {
 
       {/* Mobile Nav Items */}
       {isMenuOpen && (
-        <div className="md:hidden bg-primary-dark/70 border-t border-secondary-muted py-4">
-          <div className="container mx-auto px-4 space-y-3 animate-slide-down">
+        <div className="md:hidden bg-primary-dark/30 border-t border-secondary-muted py-4">
+          <div className="container mx-auto px-4 space-y-4 animate-slide-down">
             {/* Nav links */}
             {navLinks.map((link, index) => (
               <a
@@ -89,7 +89,7 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setIsMenuOpen(false);
                 }}
-                className={`block text-sm font-medium py-2 ${
+                className={`block text-sm font-medium py-3 ${
                   activeLink === link.href
                     ? 'text-primary-yellow'
                     : 'text-secondary-light hover:text-primary-yellow'
@@ -100,7 +100,7 @@ const Navbar = () => {
             ))}
 
             {/* Social Icons */}
-            <div className="flex items-center gap-4 border-t pt-4 border-secondary-muted">
+            <div className="flex items-center gap-4 border-t py-4 border-secondary-muted">
               <FaFacebookF className="size-5 text-secondary-light hover:text-primary-yellow transition-colors cursor-pointer" />
               <FaInstagram className="size-5 text-secondary-light hover:text-primary-yellow transition-colors cursor-pointer" />
               <FaLinkedinIn className="size-5 text-secondary-light hover:text-primary-yellow transition-colors cursor-pointer" />

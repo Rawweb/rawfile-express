@@ -32,10 +32,15 @@ const Hero = () => {
             way.
           </p>
 
-          <Link to="/about"><button className="bg-primary-yellow text-primary-dark font-semibold px-6 py-3 sm:px-8 sm:py-4 hover:bg-yellow-400 transition-colors">Explore More</button></Link>
+          <Link to="/about">
+            <button className="primary-btn group mt-2">
+              <span className="relative z-10">Explore More</span>
 
-         
-        </div>
+              {/* White overlay slides in diagonally (bottom-right → top-left) */}
+              <span className="primary-btn-overlay"></span>
+            </button>
+          </Link>
+        </div> 
       </div>
     </section>
   );
