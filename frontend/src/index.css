@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+@theme {
+  /* breakpoints */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+  --breakpoint-xl: 1024px;
+
+  /* colors */
+  --color-primary-yellow: #ffbe34;
+  --color-primary-dark: #091242;
+  --color-secondary-light: #f4f4f4;
+  --color-secondary-dark: #1c1f35;
+  --color-secondary-muted: #666c89;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* custom animations */
+  /* 👇 Slide-down animation */
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-slide-down: slideDown 0.4s ease-out;
+}
+
+:root {
+  font-family: 'Rubik', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* container */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
