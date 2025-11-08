@@ -14,6 +14,8 @@ const WhyUs = () => {
           alt="Why us image"
           className="w-full h-[500px] object-cover hidden md:block"
         />
+
+        {/* overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-primary-dark to-transparent"></div>
       </div>
 
@@ -22,7 +24,7 @@ const WhyUs = () => {
         <div className="p-6 sm:p-10 lg:p-16 flex flex-col md:flex-row items-center gap-6">
           {/* left */}
           <div className="w-full md:w-1/2 space-y-3">
-            <p className="text-sm sm:text-base bg-secondary-light px-3 py-2 border-l-4 border-primary-yellow w-fit">
+            <p className="text-xs sm:text-sm bg-secondary-light px-2 py-1 border-l-4 border-primary-yellow w-fit">
               Why Us
             </p>
             <h1 className="font-semibold text-l md:text-xl lg:text-3xl text-primary-dark">

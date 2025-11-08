@@ -36,8 +36,8 @@ const WhatWeDoSection = () => {
     <section className="container py-20">
       <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-4">
         {/* left */}
-        <div className="w-full md:w-1/3 space-y-3">
-          <p className="text-sm sm:text-base bg-secondary-light px-3 py-2 border-l-4 border-primary-yellow w-fit">
+        <div className="w-full md:w-1/3 space-y-3 text-center md:text-left">
+          <p className="text-xs sm:text-sm bg-secondary-light px-2 py-1 border-l-4 border-primary-yellow w-fit text-center md:text-left  mx-auto md:mx-0">
             What We Do
           </p>
           <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl text-primary-dark">

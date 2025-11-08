@@ -12,14 +12,14 @@ const ContactSection = () => {
     <section className="py-20 bg-primary-dark text-secondary-light">
       <div className="container">
         {/* Header */}
-        <div className="mb-10 space-y-3">
-          <p className="text-sm sm:text-base bg-secondary-light/20  px-3 py-2 border-l-4 border-primary-yellow w-fit">
+        <div className="mb-10 space-y-3 text-center md:text-left">
+          <p className="text-xs sm:text-sm bg-secondary-light/20  px-2 py-1 border-l-4 border-primary-yellow w-fit text-center md:text-left  mx-auto md:mx-0">
             Contact
           </p>
           <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl">
             Get in touch with us
           </h1>
-          <p className="text-gray-400 text-sm md:text-base max-w-xl">
+          <p className="text-gray-400 text-sm md:text-base md:max-w-xl">
             Leverage agile frameworks to provide a robust synopsis for strategy
             foster collaborative thinking to further the overall value.
           </p>

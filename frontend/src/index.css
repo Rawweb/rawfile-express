@@ -70,7 +70,7 @@
 }
 
 .secondary-btn {
-  @apply relative overflow-hidden font-semibold text-sm md:text-base px-5 py-3 sm:px-8 sm:py-4 rounded-md text-primary-yellow bg-linear-to-r from-primary-dark to-primary-light transition-all duration-500;
+  @apply relative overflow-hidden font-semibold text-sm md:text-base px-5 py-3 sm:px-8 sm:py-4 rounded-md text-secondary-light bg-linear-to-r from-primary-dark to-primary-light transition-all duration-500;
 }
 
 .secondary-btn-overlay {

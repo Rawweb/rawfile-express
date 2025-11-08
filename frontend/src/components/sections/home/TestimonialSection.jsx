@@ -66,7 +66,7 @@ const TestimonialSection = () => {
       {/* Section Header */}
       <div className="flex items-center justify-between mb-10">
         <div className="space-y-3">
-          <p className="text-sm sm:text-base bg-secondary-light px-3 py-2 border-l-4 border-primary-yellow w-fit">
+          <p className="text-xs sm:text-sm bg-secondary-light px-2 py-1 border-l-4 border-primary-yellow w-fit">
             Testimonial
           </p>
           <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl text-primary-dark">

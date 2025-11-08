@@ -2,6 +2,7 @@ import Hero from '@components/layout/Hero';
 import CompanyLogo from '@components/sections/home/CompanyLogo';
 import ContactSection from '@components/sections/home/ContactSection';
 import CountsSection from '@components/sections/home/CountsSection';
+import OurBlogSection from '@components/sections/home/OurBlogSection';
 import TestimonialSection from '@components/sections/home/TestimonialSection';
 import WhatWeDoSection from '@components/sections/home/WhatWeDoSection';
 import WhyUsSection from '@components/sections/home/WhyUsSection';
@@ -16,6 +17,7 @@ const Home = () => {
     <CountsSection/>
     <TestimonialSection/>
     <ContactSection/>
+    <OurBlogSection/>
   </div>;
 };
 
