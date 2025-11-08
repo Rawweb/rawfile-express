@@ -35,10 +35,10 @@ const FooterSection = () => {
       </div>
 
       {/* Footer Content */}
-      <div className="container py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="container py-20 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Info */}
-        <div className="space-y-4">
-          <Link to="/" className="flex gap-2 items-center cursor-pointer group">
+        <div className="space-y-4 pt-4">
+          <Link to="/" className="flex gap-2 items-center cursor-pointer group ">
             <img
               src={logo}
               alt="RawExpress logo"
@@ -53,7 +53,7 @@ const FooterSection = () => {
             and collaborative thinking to further the overall value proposition.
           </p>
 
-          <div className="space-y-3">
+          <div className="space-y-5">
             <div className="flex items-center gap-3">
               <div className="flex items-center justify-center p-2 bg-primary-light border border-secondary-muted text-primary-yellow rounded-full">
                 <TfiEmail className="size-5" />
@@ -82,7 +82,7 @@ const FooterSection = () => {
 
         {/* Pages */}
         <div>
-          <h2 className="font-semibold text-lg mb-4">Pages</h2>
+          <h2 className="font-semibold text-lg mb-4 bg-secondary-muted/50 p-4">Pages</h2>
           <ul className="space-y-2">
             {footerLinks.pages.map((link, i) => (
               <li key={i}>
@@ -99,7 +99,7 @@ const FooterSection = () => {
 
         {/* Utility */}
         <div>
-          <h2 className="font-semibold text-lg mb-4">Utility</h2>
+          <h2 className="font-semibold text-lg mb-4 bg-secondary-muted/50 p-4">Utility</h2>
           <ul className="space-y-2">
             {footerLinks.utility.map((link, i) => (
               <li key={i}>
@@ -116,7 +116,7 @@ const FooterSection = () => {
 
         {/* Subscribe */}
         <div>
-          <h2 className="font-semibold text-lg mb-4">Subscribe</h2>
+          <h2 className="font-semibold text-lg mb-4 bg-secondary-muted/50 p-4">Subscribe</h2>
           <form className="space-y-3">
             <input
               type="email"
@@ -141,7 +141,7 @@ const FooterSection = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-secondary-muted/30 py-6 text-center text-xs text-gray-500">
-        Copyright © RawExpress | Designed by Rawfile | Powered by Vite + React
+        Copyright &copy; {new Date().getFullYear()} RawExpress 
       </div>
     </footer>
   );

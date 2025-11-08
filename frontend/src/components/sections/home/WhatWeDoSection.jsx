@@ -1,31 +1,31 @@
 import React from 'react';
 import { LuShip } from 'react-icons/lu';
-import { PiWarehouseDuotone } from "react-icons/pi";
-import { MdFlightTakeoff } from "react-icons/md";
-import { FaCaravan } from "react-icons/fa";
+import { PiWarehouseDuotone } from 'react-icons/pi';
+import { MdFlightTakeoff } from 'react-icons/md';
+import { FaCaravan } from 'react-icons/fa';
 
 const WhatWeDoSection = () => {
   const whatWeDo = [
     {
-      icon: <LuShip className="size-16 text-primary-dark" />,
+      icon: <LuShip className="size-5 text-primary-yellow" />,
       title: 'Sea Transport Services',
       description:
         'Reliable and affordable ocean freight ensuring secure, timely cargo delivery across global trade routes.',
     },
     {
-      icon: <PiWarehouseDuotone className="size-16 text-primary-dark" />,
+      icon: <PiWarehouseDuotone className="size-5 text-primary-yellow" />,
       title: 'Warehousing Services',
       description:
         'Secure, organized, and efficient storage facilities supporting smooth inventory control and timely distribution.',
     },
     {
-      icon: <MdFlightTakeoff className="size-16 text-primary-dark" />,
+      icon: <MdFlightTakeoff className="size-5 text-primary-yellow" />,
       title: 'Air Freight Services',
       description:
         'Fast, flexible air cargo solutions designed for urgent deliveries with global coverage and reliability.',
     },
     {
-      icon: <FaCaravan className="size-16 text-primary-dark" />,
+      icon: <FaCaravan className="size-5 text-primary-yellow" />,
       title: 'Local Shipping Services',
       description:
         'Trusted door-to-door delivery providing quick, dependable transportation across all local destinations efficiently.',
@@ -53,16 +53,16 @@ const WhatWeDoSection = () => {
             {whatWeDo.slice(0, 2).map((item, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 md:gap-6 lg:gap-8 flex-1"
+                className="flex items-start gap-4 md:gap-6 lg:gap-8 flex-1 group"
               >
-                {item.icon}
+                <div className="p-2 rounded-full bg-secondary-light border border-primary-dark/10 group-hover:bg-primary-yellow/20 group-hover:scale-105 transition-transform duration-300">
+                  {item.icon}
+                </div>
                 <div className="border-l border-primary-dark/20 pl-4 space-y-3">
-                  <h1 className="font-medium text-lg lg:text-xl text-primary-dark">
+                  <h1 className="font-medium md:text-lg lg:text-xl text-primary-dark group-hover:text-primary-yellow transition-colors">
                     {item.title}
                   </h1>
-                  <p className="text-sm md:text-base text-secondary-muted">
-                    {item.description}
-                  </p>
+                  <p className="text-secondary-muted">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -73,16 +73,16 @@ const WhatWeDoSection = () => {
             {whatWeDo.slice(2, 4).map((item, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 md:gap-6 lg:gap-8 flex-1"
+                className="flex items-start gap-4 md:gap-6 lg:gap-8 flex-1 group"
               >
-                {item.icon}
+                <div className="p-2 rounded-full bg-secondary-light border border-primary-dark/10 group-hover:bg-primary-yellow/20 group-hover:scale-105 transition-transform duration-300">
+                  {item.icon}
+                </div>
                 <div className="border-l border-primary-dark/20 pl-4 space-y-3">
-                  <h1 className="font-medium text-lg lg:text-xl text-primary-dark">
+                  <h1 className="font-medium md:text-lg  lg:text-xl text-primary-dark group-hover:text-primary-yellow transition-colors">
                     {item.title}
                   </h1>
-                  <p className="text-sm md:text-base text-secondary-muted">
-                    {item.description}
-                  </p>
+                  <p className="text-secondary-muted ">{item.description}</p>
                 </div>
               </div>
             ))}

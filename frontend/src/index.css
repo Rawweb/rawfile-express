@@ -69,8 +69,16 @@
   @apply absolute inset-0 w-35 h-35 bg-secondary-light rounded-full translate-x-28 translate-y-7 group-hover:w-40 group-hover:h-40 group-hover:translate-x-12 group-hover:-translate-y-3 transition-transform duration-700 ease-out;
 }
 
+.primary-btn-2 {
+  @apply relative overflow-hidden text-sm md:text-base px-4 py-3 text-secondary-light bg-linear-to-r from-primary-yellow to-yellow-300 transition-all duration-500;
+}
+
+.primary-btn-overlay-2 {
+  @apply absolute inset-0 w-35 h-35 bg-secondary-light rounded-full translate-x-28 translate-y-7 group-hover:w-40 group-hover:h-40 group-hover:translate-x-12 group-hover:-translate-y-3 transition-transform duration-700 ease-out;
+}
+
 .secondary-btn {
-  @apply relative overflow-hidden font-semibold text-sm md:text-base px-5 py-3 sm:px-8 sm:py-4 rounded-md text-secondary-light bg-linear-to-r from-primary-dark to-primary-light transition-all duration-500;
+  @apply relative overflow-hidden text-sm md:text-base px-4 py-3 text-secondary-light bg-linear-to-r from-primary-dark to-primary-light transition-all duration-500;
 }
 
 .secondary-btn-overlay {

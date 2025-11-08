@@ -30,33 +30,43 @@ const ContactSection = () => {
           {/* Left Info */}
           <div className="w-full md:w-1/3 space-y-6">
             <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center size-12 rounded-full bg-primary-light border border-secondary-muted text-primary-yellow">
-                <TfiEmail className="size-4" />
+              <div className="flex items-center justify-center p-3 bg-primary-light border border-secondary-muted text-primary-yellow rounded-full">
+                <TfiEmail className="size-5" />
               </div>
               <div>
-                <p className="font-medium">Email</p>
-                <p className="text-gray-400 text-sm">contact@logistics.com</p>
+                <p className="text-secondary-light font-medium">
+                  Email
+                </p>
+                <p className="font-medium text-secondary-muted">
+                  contatc@logistics.com
+                </p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center size-12 rounded-full bg-primary-light border border-secondary-muted text-primary-yellow">
-                <SlCallOut className="size-4" />
+              <div className="flex items-center justify-center p-3 bg-primary-light border border-secondary-muted text-primary-yellow rounded-full">
+                <SlCallOut className="size-5" />
               </div>
               <div>
-                <p className="font-medium">Call Us</p>
-                <p className="text-gray-400 text-sm">(800) 123 - 325 469</p>
+                <p className="text-secondary-light font-medium">
+                  Call Us
+                </p>
+                <p className="font-medium text-secondary-muted">
+                  (00) 112 365 489
+                </p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center size-12 rounded-full bg-primary-light border border-secondary-muted text-primary-yellow">
-                <BsClockHistory className="size-4" />
+              <div className="flex items-center justify-center p-3 bg-primary-light border border-secondary-muted text-primary-yellow rounded-full">
+                <BsClockHistory className="size-5" />
               </div>
               <div>
-                <p className="font-medium">Working Hours</p>
-                <p className="text-gray-400 text-sm">
-                  Mon – Sat: 9.00 – 18.00 <br /> Sunday Closed
+                <p className="text-secondary-light font-medium">
+                  Mon - Sat 9.00-18.00
+                </p>
+                <p className="font-medium text-secondary-muted">
+                  Sunday Closed
                 </p>
               </div>
             </div>
@@ -122,8 +132,6 @@ const ContactSection = () => {
             alt="contact partner"
             className="w-full h-full object-cover"
           />
-         
-          
         </div>
       </div>
     </section>

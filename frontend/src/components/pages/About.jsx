@@ -1,7 +1,28 @@
+import AboutHero from '@components/sections/about/AboutHero';
+import AboutUsSection from '@components/sections/about/AboutUsSection';
+import BrandSection from '@components/sections/about/BrandSection';
+import ExpertTeamSection from '@components/sections/about/ExpertTeamSection';
+import FAQSection from '@components/sections/about/FAQSection';
+import WhatWeDoSection from '@components/sections/about/WhatWeDoSection';
+import TestimonialSection from '@components/sections/home/TestimonialSection';
 import React from 'react';
 
 const About = () => {
-  return <div className='min-h-screen'>About</div>;
+  return (
+    <div className="min-h-screen">
+      <AboutHero />
+      <AboutUsSection />
+      <WhatWeDoSection />
+      <ExpertTeamSection />
+      <div className="bg-secondary-light">
+        <TestimonialSection />
+      </div>
+      <BrandSection />
+      <div className="bg-secondary-light">
+        <FAQSection />
+      </div>
+    </div>
+  );
 };
 
 export default About;
