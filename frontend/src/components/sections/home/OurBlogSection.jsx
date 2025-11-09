@@ -1,9 +1,11 @@
 import React from 'react';
 import { LuCalendarDays } from 'react-icons/lu';
+import { Link } from 'react-router-dom';
 import blog1 from '@assets/blog-1.jpg';
 import blog2 from '@assets/blog-2.jpg';
 import blog3 from '@assets/blog-3.jpg';
-import { Link } from 'react-router-dom';
+import blog4 from '@assets/blog-4.jpg';
+import blog5 from '@assets/blog-5.jpg';
 
 const blogPosts = [
   {
@@ -15,12 +17,7 @@ const blogPosts = [
     title: 'Inland freight a worthy solution for your business',
     description:
       'Our inland freight service ensures safe, fast, and reliable delivery across cities with modern tracking and professional handling.',
-    list: [
-      'Flexible routes',
-      'Quick delivery',
-      'Real-time tracking',
-      'Safe handling',
-    ],
+    list: ['Flexible routes', 'Quick delivery', 'Real-time tracking', 'Safe handling'],
   },
   {
     id: 2,
@@ -31,12 +28,7 @@ const blogPosts = [
     title: 'How technology can help redraw the supply chain map',
     description:
       'We use advanced technology to optimize logistics, improving visibility, accuracy, and communication across the supply network.',
-    list: [
-      'Smart analytics',
-      'Cloud systems',
-      'Faster updates',
-      'Better control',
-    ],
+    list: ['Smart analytics', 'Cloud systems', 'Faster updates', 'Better control'],
   },
   {
     id: 3,
@@ -47,16 +39,36 @@ const blogPosts = [
     title: 'Five things you should have ready for your broker',
     description:
       'Proper preparation speeds up customs clearance, lowers costs, and keeps your shipments organized throughout the delivery process.',
-    list: [
-      'Clear documents',
-      'Proper labels',
-      'Right permits',
-      'Good communication',
-    ],
+    list: ['Clear documents', 'Proper labels', 'Right permits', 'Good communication'],
+  },
+  {
+    id: 4,
+    image: blog4,
+    day: '25',
+    month: 'September',
+    icon: <LuCalendarDays className="size-9 mb-1" />,
+    title: 'Four simple tips for becoming a healthier truck driver',
+    description:
+      'Long hours on the road can take a toll; maintaining balance, rest, and fitness ensures safer, more productive driving.',
+    list: ['Healthy meals', 'Adequate rest', 'Regular exercise', 'Mental focus'],
+  },
+  {
+    id: 5,
+    image: blog5,
+    day: '25',
+    month: 'September',
+    icon: <LuCalendarDays className="size-9 mb-1" />,
+    title: 'What Is The Role Of A Logistics Operations Manager',
+    description:
+      'A logistics operations manager oversees transportation, warehousing, and coordination, ensuring smooth, cost-efficient delivery from origin to destination.',
+    list: ['Route planning', 'Team coordination', 'Process optimization', 'Cost control'],
   },
 ];
 
-const OurBlogSection = () => {
+const OurBlogSection = ({ limit = null, showButton = false }) => {
+  // Slice posts if limit is given
+  const displayedPosts = limit ? blogPosts.slice(0, limit) : blogPosts;
+
   return (
     <section className="py-20 container">
       <div className="flex items-center flex-col justify-center gap-y-10">
@@ -74,7 +86,7 @@ const OurBlogSection = () => {
         <div className="w-full sm:w-3/4 md:w-full lg:w-3/4">
           <div className="border-b mb-10 border-secondary-muted/30"></div>
 
-          {blogPosts.map(post => (
+          {displayedPosts.map((post) => (
             <div
               key={post.id}
               className="group cursor-pointer flex flex-col md:flex-row gap-5 items-start border-b border-secondary-muted/30 pb-10 mb-10"
@@ -126,14 +138,14 @@ const OurBlogSection = () => {
           ))}
 
           {/* button */}
-          <Link to="/blog" className='flex justify-center'>
-            <button className="secondary-btn group mt-2">
-              <span className="relative z-10">Read More</span>
-
-              {/* White overlay slides in diagonally (bottom-right → top-left) */}
-              <span className="secondary-btn-overlay"></span>
-            </button>
-          </Link>
+          {showButton && (
+            <Link to="/blog" className="flex justify-center">
+              <button className="secondary-btn group mt-2">
+                <span className="relative z-10">Read More</span>
+                <span className="secondary-btn-overlay"></span>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </section>

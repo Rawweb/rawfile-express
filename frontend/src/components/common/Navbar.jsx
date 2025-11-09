@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import logo from '@assets/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { HiX, HiMenu } from 'react-icons/hi';
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState('#home');
+  const location = useLocation();
+  const activeLink = location.pathname;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/project', label: 'Project' },
+    { href: '/services', label: 'Services' },
+    { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -29,12 +31,11 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav Items */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-10">
           {navLinks.map((link, index) => (
             <Link
               key={index}
               to={link.href}
-              onClick={() => setActiveLink(link.href)}
               className={`relative text-sm font-medium transition-colors ${
                 activeLink === link.href
                   ? 'text-primary-yellow after:absolute after:-bottom-6 after:left-0 after:h-0.5 after:w-full after:bg-primary-yellow after:transition-all'
@@ -47,20 +48,22 @@ const Navbar = () => {
         </div>
 
         {/* buttons */}
-        <div className="hidden md:flex items-center gap-8 h-full">
+        <div className="hidden md:flex items-center gap-2 lg:gap-4 h-full">
           {/* social icons */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 lg:gap-4">
             <FaFacebookF className="size-4 hover:text-primary-yellow transition-colors" />
             <FaInstagram className="size-4 hover:text-primary-yellow transition-colors" />
             <FaLinkedinIn className="size-4 hover:text-primary-yellow transition-colors" />
           </div>
 
           {/* button */}
-          <button className="bg-secondary-light text-black h-full  px-6 py-3 hover:bg-transparent hover:text-primary-yellow hover:border hover:border-secondary-light transition-all duration-300">
-            <Link to="/quote" className="font-medium tracking-tight">
-              Request Quote
-            </Link>
-          </button>
+          <Link to="/quote" className='h-full'>
+            <button className="text-sm bg-primary-yellow text-primary-dark h-full px-4 py-3 hover:bg-yellow-400  transition-all duration-300">
+              <span to="/quote" className="font-medium tracking-tight">
+                Request Quote
+              </span>
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -110,7 +113,7 @@ const Navbar = () => {
             <Link
               to="/quote"
               onClick={() => setIsMenuOpen(false)}
-              className="block text-center mt-4 bg-secondary-light text-black px-6 py-3 font-medium tracking-tight hover:bg-transparent hover:text-primary-yellow hover:border hover:border-secondary-light transition-all duration-300"
+              className="block text-center mt-4 bg-primary-yellow text-black px-6 py-3 font-medium tracking-tight hover:bg-yellow-400  transition-all duration-300"
             >
               Request Quote
             </Link>

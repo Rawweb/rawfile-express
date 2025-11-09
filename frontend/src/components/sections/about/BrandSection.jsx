@@ -6,7 +6,7 @@ import contact4 from '@assets/contact-8.jpg';
 
 const BrandSection = () => {
   return <section className="container py-20">
-    <div className="grid grid-cols-2 md:grid-cols-4 mt-16">
+    <div className="grid grid-cols-2 md:grid-cols-4">
               <img
                 src={contact1}
                 alt="contact partner"

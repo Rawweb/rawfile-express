@@ -12,7 +12,10 @@ const About = () => {
     <div className="min-h-screen">
       <AboutHero />
       <AboutUsSection />
-      <WhatWeDoSection />
+      <div className='bg-secondary-light'>
+        <WhatWeDoSection />
+      </div>
+      
       <ExpertTeamSection />
       <div className="bg-secondary-light">
         <TestimonialSection />

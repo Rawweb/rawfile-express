@@ -17,15 +17,15 @@ const testimonials = [
     name: 'Kathleen Smith',
     company: 'Fuel Company',
     image: customer1,
-    text: 'Leverage agile frameworks to provide a robust synopsis for strategy and foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.',
-    rating: 4,
+    text: 'RawExpress has consistently delivered on time and with exceptional reliability. Their transparent communication and efficient handling have simplified our logistics operations. We trust them completely for all our shipping needs.',
+    rating: 5,
   },
   {
     name: 'John Martin',
     company: 'Restoration Company',
     image: customer2,
     text: 'Leverage agile frameworks to provide a robust synopsis for strategy and foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.',
-    rating: 5,
+    rating: 4,
   },
   {
     name: 'Sarah Lee',

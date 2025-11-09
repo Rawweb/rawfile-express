@@ -32,9 +32,9 @@ const Hero = () => {
             way.
           </p>
 
-          <Link to="/about">
+          <Link to="/tracking">
             <button className="primary-btn group mt-2">
-              <span className="relative z-10">Explore More</span>
+              <span className="relative z-10">Track Delivery</span>
 
               {/* White overlay slides in diagonally (bottom-right → top-left) */}
               <span className="primary-btn-overlay"></span>

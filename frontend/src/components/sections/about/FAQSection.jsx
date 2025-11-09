@@ -40,8 +40,9 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="container py-20 flex flex-col md:flex-row items-start gap-10 md:gap-20">
-      {/* Left - FAQ */}
+    <section className="container mt-20">
+      <div className='flex flex-col md:flex-row items-start gap-10 md:gap-20 py-20'> 
+       {/* Left - FAQ */}
       <div className="w-full md:w-2/3">
         <p className="text-xs sm:text-sm bg-secondary-light px-2 py-1 border-l-4 border-primary-yellow w-fit mb-3">
           FAQ
@@ -114,10 +115,10 @@ const FAQSection = () => {
           </div>
 
           {/* button */}
-          <Link to="/quote">
+          <Link to="/contact">
             <button className="primary-btn-2 group mt-5">
               <span className="relative z-10 text-primary-dark">
-                Request Quote
+                Contact Us
               </span>
 
               {/* White overlay slides in diagonally (bottom-right → top-left) */}
@@ -125,7 +126,9 @@ const FAQSection = () => {
             </button>
           </Link>
         </div>
+      </div>  
       </div>
+     
     </section>
   );
 };

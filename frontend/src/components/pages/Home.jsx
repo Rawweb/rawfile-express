@@ -9,16 +9,18 @@ import WhyUsSection from '@components/sections/home/WhyUsSection';
 import React from 'react';
 
 const Home = () => {
-  return <div>
-    <Hero/>
-    <WhatWeDoSection/>
-    <CompanyLogo/>
-    <WhyUsSection/>
-    <CountsSection/>
-    <TestimonialSection/>
-    <ContactSection/>
-    <OurBlogSection/>
-  </div>;
+  return (
+    <div>
+      <Hero />
+      <WhatWeDoSection />
+      <CompanyLogo />
+      <WhyUsSection />
+      <CountsSection />
+      <TestimonialSection />
+      <ContactSection />
+      <OurBlogSection limit={3} showButton={true} />
+    </div>
+  );
 };
 
 export default Home;

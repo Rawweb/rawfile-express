@@ -46,7 +46,7 @@ const WhatWeDoSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-secondary-light">
+    <section className="py-20">
       <div className="container">
         <div className="text-center space-y-3 mb-10">
           <p className="text-xs sm:text-sm bg-secondary-light px-3 py-1 border-l-4 border-primary-yellow w-fit mx-auto">
@@ -60,7 +60,7 @@ const WhatWeDoSection = () => {
         {/* services grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10">
           {services.map((item, index) => (
-            <div
+            <Link to=''
               key={index}
               className="flex flex-col sm:flex-row items-start gap-4 group"
             >
@@ -78,7 +78,7 @@ const WhatWeDoSection = () => {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
