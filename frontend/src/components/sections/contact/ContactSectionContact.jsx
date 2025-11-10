@@ -6,7 +6,7 @@ import { BsClockHistory } from 'react-icons/bs';
 const ContactSectionContact = () => {
   return (
     <section className=" container py-20">
-      <div className=" bg-primary-dark text-secondary-light p-20">
+      <div className=" bg-primary-dark text-secondary-light p-10 sm:p-12 lg:p-20">
         {/* Header */}
         <div className="text-center mb-10 space-y-3">
           <p className="text-xs sm:text-sm bg-secondary-light/20 px-2 py-1 border-l-4 border-primary-yellow w-fit mx-auto">

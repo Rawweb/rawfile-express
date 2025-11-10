@@ -2,9 +2,9 @@ import React from 'react';
 
 const QuoteForm = () => {
   return (
-    <section className="container bg-primary-dark my-20">
-      <div className="text-secondary-light py-20">
-        <div className="px-4">
+    <section className="container py-20">
+      <div className="bg-primary-dark text-secondary-light px-6 sm:px-10 md:px-20 py-16">
+        
           {/* Header */}
           <div className="text-center space-y-3 mb-10">
             <p className="text-xs sm:text-sm bg-secondary-light/20 px-2 py-1 border-l-4 border-primary-yellow w-fit mx-auto">
@@ -117,7 +117,7 @@ const QuoteForm = () => {
               </button>
             </div>
           </form>
-        </div>
+        
       </div>
     </section>
   );

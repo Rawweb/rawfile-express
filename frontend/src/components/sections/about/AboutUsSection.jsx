@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import aboutUsImage from '@assets/about-us.png';
 import { Link } from 'react-router-dom';
 
-const AboutUsSection = () => {
+const AboutUsSection = ({
+  image,
+  title = 'Our Company Overview',
+  subtitle = 'We deliver innovative logistics and transport solutions built on trust, precision, and a deep understanding of our clients’ needs.',
+  showButton = true,
+}) => {
   const [activeTab, setActiveTab] = useState('mission');
 
   return (
     <section className="container py-20">
-      <div className="flex flex-col md:flex-row-reverse items-center gap-10 ">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-10">
         {/* left */}
         <div className="w-full md:w-1/2 space-y-3">
           <p className="text-xs sm:text-sm bg-secondary-light px-2 py-1 border-l-4 border-primary-yellow w-fit">
             About Us
           </p>
           <h1 className="font-semibold text-l md:text-xl lg:text-3xl text-primary-dark">
-            Our Company Overview
+            {title}
           </h1>
           <p className="text-sm lg:text-base text-secondary-muted">
-            Leverage agile frameworks to provide a robust synopsis for strategy
-            and foster collaborative thinking to enhance the overall value
-            proposition.
+            {subtitle}
           </p>
 
           {/* Mission / Vision Buttons */}
@@ -28,7 +30,7 @@ const AboutUsSection = () => {
               onClick={() => setActiveTab('mission')}
               className={`py-3 px-4 text-sm font-medium transition-all duration-300 ${
                 activeTab === 'mission'
-                  ? 'bg-primary-yellow text-primary-dar'
+                  ? 'bg-primary-yellow text-primary-dark'
                   : 'bg-secondary-light text-primary-dark hover:bg-primary-yellow'
               }`}
             >
@@ -38,8 +40,8 @@ const AboutUsSection = () => {
               onClick={() => setActiveTab('vision')}
               className={`py-3 px-4 text-sm font-medium transition-all duration-300 ${
                 activeTab === 'vision'
-                  ? 'bg-primary-yellow text-secondary-dark'
-                  : 'bg-secondary-light text-primary-dark hover:bg-primary-yellow '
+                  ? 'bg-primary-yellow text-primary-dark'
+                  : 'bg-secondary-light text-primary-dark hover:bg-primary-yellow'
               }`}
             >
               Our Vision
@@ -60,21 +62,21 @@ const AboutUsSection = () => {
             </p>
           )}
 
-          {/* button */}
-          <Link to="/quote">
-            <button className="secondary-btn group mt-2">
-              <span className="relative z-10">Request Quote</span>
-
-              {/* White overlay slides in diagonally (bottom-right → top-left) */}
-              <span className="secondary-btn-overlay"></span>
-            </button>
-          </Link>
+          {/* Optional button */}
+          {showButton && (
+            <Link to="/quote">
+              <button className="secondary-btn group mt-2">
+                <span className="relative z-10">Services</span>
+                <span className="secondary-btn-overlay"></span>
+              </button>
+            </Link>
+          )}
         </div>
 
         {/* right */}
         <div className="w-full md:w-1/2">
           <img
-            src={aboutUsImage}
+            src={image}
             alt="About Us"
             className="w-full h-auto object-contain"
           />
