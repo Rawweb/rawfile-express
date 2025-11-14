@@ -1,8 +1,3 @@
-import { LuShip } from 'react-icons/lu';
-import { PiWarehouseDuotone } from 'react-icons/pi';
-import { MdFlightTakeoff } from 'react-icons/md';
-import { FaCaravan, FaClipboardList, FaPeopleCarry } from 'react-icons/fa';
-
 // Import your service images
 import seaImage from '@assets/quote.jpg';
 import warehouseImage from '@assets/warehouse.jpg';

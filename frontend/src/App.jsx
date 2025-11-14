@@ -11,6 +11,7 @@ import Tracking from '@components/pages/Tracking';
 import Team from '@components/pages/Team';
 import ServiceDetails from '@components/pages/ServiceDetails';
 import NotFounPage from '@components/pages/NotFounPage';
+import BlogDetails from '@components/pages/BlogDetails';
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
           <Route path="services/:serviceId" element={<ServiceDetails />} />
-          <Route path="blog" element={<Blog />} />
+          <Route path="blog/" element={<Blog />} />
+          <Route path="blog/:blogId" element={<BlogDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="quote" element={<Quote />} />
           <Route path="tracking" element={<Tracking />} />

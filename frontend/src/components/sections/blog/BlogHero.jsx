@@ -19,7 +19,7 @@ const BlogHero = () => {
                 Blog
               </p>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tightk">
-                Our Lates News
+                Our Latest News
               </h1>
             </div>
           </header>

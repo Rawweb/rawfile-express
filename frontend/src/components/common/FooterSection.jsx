@@ -15,8 +15,8 @@ const footerLinks = {
   ],
   utility: [
     { label: 'Our Team', href: '/team' },
-    { label: 'Changelog', href: '/changelog' },
-    { label: 'Licenses', href: '/licenses' },
+    { label: 'Request Quote', href: '/quote' },
+    { label: 'Track Delivery', href: '/tracking' },
     { label: 'Protected', href: '/protected' },
   ],
 };
