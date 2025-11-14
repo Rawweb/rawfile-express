@@ -16,8 +16,8 @@ const footerLinks = {
   utility: [
     { label: 'Our Team', href: '/team' },
     { label: 'Request Quote', href: '/quote' },
-    { label: 'Track Delivery', href: '/tracking' },
-    { label: 'Protected', href: '/protected' },
+    { label: 'Track And Trace', href: '/tracking' },
+    { label: 'Legal', href: '/legal' },
   ],
 };
 
@@ -118,7 +118,7 @@ const FooterSection = ({ showImage }) => {
         {/* Utility */}
         <div>
           <h2 className="font-semibold text-lg mb-4 bg-secondary-muted/50 p-4">
-            Utility
+            Quick Actions
           </h2>
           <ul className="space-y-2">
             {footerLinks.utility.map((link, i) => (
@@ -166,8 +166,30 @@ const FooterSection = ({ showImage }) => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-secondary-muted/30 py-6 text-center text-xs text-gray-500">
-        Copyright &copy; {new Date().getFullYear()} RawExpress
+      <div className="border-t border-secondary-muted/30 py-6 px-20 flex flex-col-reverse md:flex-row items-center justify-between text-secondary-muted gap-y-4 text-sm md:text-normal">
+        <h1 className='text-center md:text-left'>Copyright &copy; {new Date().getFullYear()} RawExpress</h1>
+        <div className="flex gap-2 md:gap-4 items-center ">
+          <Link
+            to="/terms"
+            className={`cursor-pointer  transition-colors ${
+              activeLink === '/terms'
+                ? 'text-primary-yellow'
+                : 'hover:text-primary-yellow'
+            }`}
+          >
+            Terms and Conditions
+          </Link>
+          <Link
+            to="policy"
+            className={`cursor-pointer  transition-colors ${
+              activeLink === '/policy'
+                ? 'text-primary-yellow'
+                : 'hover:text-primary-yellow'
+            }`}
+          >
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );
