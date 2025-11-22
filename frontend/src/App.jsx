@@ -15,12 +15,32 @@ import BlogDetails from '@components/pages/BlogDetails';
 import Legal from '@components/pages/Legal';
 import TermsAndConditions from '@components/pages/TermsAndCondition';
 import Policy from '@components/pages/Policy';
+import { Toaster } from 'sonner';
 
+// Admin Imports
+import Login from '@components/pages/Login';
+import AdminDashboard from '@components/pages/admin/AdminDashboard';
+import CreateShipment from '@components/pages/admin/CreateShipment';
+import EditShipment from '@components/pages/admin/EditShipment';
+import AllShipments from '@components/pages/admin/AllShipments';
+import ProtectedRoute from '@components/common/ProtectedRoute';
+import AdminLayout from '@components/pages/admin/AdminLayout';
+import AllQuotes from '@components/pages/admin/AllQuotes';
 
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
+      <Toaster
+        position="top-right"
+        expand
+        richColors
+        toastOptions={{
+          style: {
+            fontSize: '14px',
+          },
+        }}
+      />
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />} />
@@ -31,13 +51,31 @@ const App = () => {
           <Route path="blog/:blogId" element={<BlogDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="quote" element={<Quote />} />
-          <Route path="tracking" element={<Tracking />} />
+          <Route path="track" element={<Tracking />} />
           <Route path="team" element={<Team />} />
           <Route path="legal" element={<Legal />} />
           <Route path="terms" element={<TermsAndConditions />} />
-          <Route path="policy" element={<Policy />} />
+          <Route path="policy" element={<Policy />} />{' '}
+          <Route path="admin/login" element={<Login />} />
           {/* 404 Page */}
           <Route path="*" element={<NotFounPage />} />
+        </Route>
+
+        {/* Admin Route */}
+        {/* protected */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="create-shipment" element={<CreateShipment />} />
+          <Route path="all-shipments" element={<AllShipments />} />
+          <Route path="quotes" element={<AllQuotes />} />
+          <Route path="edit-shipment/:id" element={<EditShipment />} />
         </Route>
       </Routes>
     </Router>

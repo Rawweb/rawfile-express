@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SlCallOut } from 'react-icons/sl';
 import { TfiEmail } from 'react-icons/tfi';
 import { BsClockHistory } from 'react-icons/bs';
+import { toast } from 'sonner';
+import TrackingResult from '@components/sections/tracking/TrackingResult';
 
 const TrackingSection = () => {
+  const [trackingId, setTrackingId] = useState('');
+  const [trackingData, setTrackingData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleTrack = async e => {
+    e.preventDefault();
+    setTrackingData(null);
+
+    if (!trackingId.trim()) {
+      toast.error('Please enter a tracking ID');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(`/api/track/${trackingId}`);
+
+      if (!res.ok) {
+        toast.error('Tracking ID not found');
+        setLoading(false);
+        return;
+      }
+
+      const data = await res.json();
+      setTrackingData(data);
+
+      toast.success('Tracking details loaded!');
+    } catch (err) {
+      toast.error('Unable to fetch tracking details');
+    }
+
+    setLoading(false);
+  };
+
   return (
     <section className="container py-20">
       <div className="bg-primary-dark text-secondary-light p-10 sm:p-16 lg:p-20 rounded-md">
@@ -22,26 +59,43 @@ const TrackingSection = () => {
         </div>
 
         {/* Tracking Form */}
-        <form className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-4">
-          {/* Input Field */}
+        <form
+          onSubmit={handleTrack}
+          className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-4"
+        >
           <input
             type="text"
+            value={trackingId}
+            onChange={e => setTrackingId(e.target.value)}
             placeholder="Enter Tracking ID*"
             className="flex-1 w-full p-3 bg-transparent border border-secondary-light/40 
-               text-secondary-light placeholder-gray-400 
-               focus:border-primary-yellow focus:outline-none"
+              text-secondary-light placeholder-gray-400 
+              focus:border-primary-yellow focus:outline-none"
           />
 
-          {/* Submit Button */}
           <button
             type="submit"
-            className="primary-btn-2 group w-full sm:w-auto"
+            disabled={loading}
+            className={`primary-btn-2 group w-full sm:w-auto ${
+              loading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
-            <span className="relative z-10 text-primary-dark">Track</span>
-            {/* White overlay slides in diagonally (bottom-right → top-left) */}
+            <span className="relative z-10 text-primary-dark">
+              {loading ? 'Loading…' : 'Track'}
+            </span>
             <span className="primary-btn-overlay-2"></span>
           </button>
         </form>
+
+        {/* Loading */}
+        {loading && (
+          <p className="text-center text-gray-300 mt-6 animate-pulse">
+            Loading…
+          </p>
+        )}
+
+        {/* Tracking Result */}
+        {trackingData && <TrackingResult data={trackingData} />}
 
         {/* Divider */}
         <div className="border-t border-secondary-light/30 my-16"></div>

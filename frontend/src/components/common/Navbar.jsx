@@ -57,10 +57,10 @@ const Navbar = () => {
           </div>
 
           {/* button */}
-          <Link to="/quote" className='h-full'>
+          <Link to="/track" className='h-full'>
             <button className="text-sm bg-primary-yellow text-primary-dark h-full px-4 py-3 hover:bg-yellow-400  transition-all duration-300">
-              <span to="/quote" className="font-medium tracking-tight">
-                Request Quote
+              <span to="/track" className="font-medium tracking-tight">
+                Track Delivery
               </span>
             </button>
           </Link>
@@ -111,11 +111,11 @@ const Navbar = () => {
 
             {/* Quote Button */}
             <Link
-              to="/quote"
+              to="/track"
               onClick={() => setIsMenuOpen(false)}
               className="block text-center mt-4 bg-primary-yellow text-black px-6 py-3 font-medium tracking-tight hover:bg-yellow-400  transition-all duration-300"
             >
-              Request Quote
+              Track Delivery
             </Link>
           </div>
         </div>

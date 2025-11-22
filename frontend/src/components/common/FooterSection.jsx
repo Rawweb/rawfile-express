@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import footerImage from '@assets/footer.jpg';
 import logo from '@assets/logo.png';
@@ -16,7 +15,7 @@ const footerLinks = {
   utility: [
     { label: 'Our Team', href: '/team' },
     { label: 'Request Quote', href: '/quote' },
-    { label: 'Track And Trace', href: '/tracking' },
+    { label: 'Track And Trace', href: '/track' },
     { label: 'Legal', href: '/legal' },
   ],
 };

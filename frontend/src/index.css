@@ -85,6 +85,9 @@
   @apply absolute inset-0 w-35 h-35 bg-primary-lighter rounded-full translate-x-28 translate-y-7 group-hover:w-40 group-hover:h-40 group-hover:translate-x-12 group-hover:-translate-y-3 transition-transform duration-700 ease-out;
 }
 
+@import "react-datepicker/dist/react-datepicker.css";
+
+
 /* swiper
 .testimonials-swiper {
   padding: 20px 0;
