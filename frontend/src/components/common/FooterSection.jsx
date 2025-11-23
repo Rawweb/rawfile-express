@@ -4,6 +4,9 @@ import logo from '@assets/logo.png';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { TfiEmail } from 'react-icons/tfi';
 import { SlCallOut } from 'react-icons/sl';
+import { FiLock } from 'react-icons/fi';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const footerLinks = {
   pages: [
@@ -23,6 +26,44 @@ const footerLinks = {
 const FooterSection = ({ showImage }) => {
   const location = useLocation();
   const activeLink = location.pathname;
+
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async e => {
+    e.preventDefault();
+
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email))  {
+      toast.error('Enter a valid email');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/newsletter/subscribe`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.message);
+      } else {
+        toast.success('Subscribed successfully!');
+        setEmail('');
+      }
+    } catch (err) {
+      toast.error('Server error');
+    }
+
+    setLoading(false);
+  };
 
   return (
     <footer className="relative bg-primary-dark text-secondary-light">
@@ -77,7 +118,7 @@ const FooterSection = ({ showImage }) => {
 
             <div className="flex items-center gap-3">
               <div className="flex items-center justify-center p-2 bg-primary-light border border-secondary-muted text-primary-yellow rounded-full">
-                <TfiEmail className="size-5" />
+                <SlCallOut className="size-5" />
               </div>
               <div>
                 <p className="text-sm text-secondary-light font-medium">
@@ -142,17 +183,20 @@ const FooterSection = ({ showImage }) => {
           <h2 className="font-semibold text-lg mb-4 bg-secondary-muted/50 p-4">
             Subscribe
           </h2>
-          <form className="space-y-3">
+          <form className="space-y-3" onSubmit={handleSubscribe}>
             <input
               type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               placeholder="Email here*"
               className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
             />
             <button
               type="submit"
+              disabled={loading}
               className="bg-primary-yellow text-primary-dark font-medium px-6 py-3 hover:bg-yellow-400 transition-colors w-full md:w-fit"
             >
-              Send Now
+              {loading ? 'Subscribing…' : 'Send Now'}
             </button>
           </form>
 
@@ -166,7 +210,9 @@ const FooterSection = ({ showImage }) => {
 
       {/* Bottom Bar */}
       <div className="border-t border-secondary-muted/30 py-6 px-20 flex flex-col-reverse md:flex-row items-center justify-between text-secondary-muted gap-y-4 text-sm md:text-normal">
-        <h1 className='text-center md:text-left'>Copyright &copy; {new Date().getFullYear()} RawExpress</h1>
+        <h1 className="text-center md:text-left">
+          Copyright &copy; {new Date().getFullYear()} RawExpress
+        </h1>
         <div className="flex gap-2 md:gap-4 items-center ">
           <Link
             to="/terms"
@@ -187,6 +233,16 @@ const FooterSection = ({ showImage }) => {
             }`}
           >
             Privacy Policy
+          </Link>
+
+          {/* 🔐 ADMIN LOGIN ICON */}
+          <Link
+            to="/admin/login"
+            className={`cursor-pointer p-1 rounded-full border border-secondary-muted/40 
+      hover:border-primary-yellow hover:text-primary-yellow transition-colors`}
+            title="Admin Login"
+          >
+            <FiLock className="size-4" />
           </Link>
         </div>
       </div>

@@ -1,21 +1,40 @@
-// utils/sendEmail.js
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
+const path = require('path');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
-const sendEmail = async ({ to, subject, html }) => {
+async function sendEmail(to, subject, html) {
   try {
-    await resend.emails.send({
-      from: process.env.FROM_EMAIL, 
-      subject: 'New Quote Request',
-      html: `...`,
-    }); 
+    const info = await transporter.sendMail({
+      from: `"RawExpress" <${process.env.EMAIL_USER}>`,
+      to,
+      subject,
+      html,
 
-    return { success: true };
-  } catch (err) {
-    console.error('Email sending error:', err);
-    throw new Error('Email failed');
+      // logo here
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: path.join(__dirname, '../assets/logo.png'),
+          cid: 'logo' 
+        }
+      ]
+    });
+
+    console.log('Email sent:', info.messageId);
+    return info;
+  } catch (error) {
+    console.error('Email error:', error);
+    throw error;
   }
-};
+}
 
 module.exports = sendEmail;

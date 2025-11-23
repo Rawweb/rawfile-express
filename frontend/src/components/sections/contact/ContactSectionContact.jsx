@@ -2,6 +2,7 @@ import React from 'react';
 import { TfiEmail } from 'react-icons/tfi';
 import { SlCallOut } from 'react-icons/sl';
 import { BsClockHistory } from 'react-icons/bs';
+import ContactForm from '@components/common/ContactForm';
 
 const ContactSectionContact = () => {
   return (
@@ -56,43 +57,7 @@ const ContactSectionContact = () => {
         </div>
 
         {/* Contact Form */}
-        <form className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <input
-            type="text"
-            placeholder="Your name*"
-            className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-          />
-          <input
-            type="email"
-            placeholder="Email*"
-            className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-          />
-          <input
-            type="text"
-            placeholder="Phone Number*"
-            className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-          />
-          <input
-            type="text"
-            placeholder="City*"
-            className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-          />
-          <textarea
-            placeholder="Your Message"
-            rows="4"
-            className="sm:col-span-2 w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-          ></textarea>
-
-          {/* button — spans across both columns */}
-          <div className="sm:col-span-2 flex justify-center pt-5">
-            <button type="submit" className="primary-btn-2 group mt-5">
-              <span className="relative z-10 text-primary-dark">
-                Submit Message
-              </span>
-              <span className="primary-btn-overlay-2"></span>
-            </button>
-          </div>
-        </form>
+        <ContactForm/>
       </div>
     </section>
   );

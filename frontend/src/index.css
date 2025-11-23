@@ -87,6 +87,11 @@
 
 @import "react-datepicker/dist/react-datepicker.css";
 
+.react-datepicker__calendar-icon {
+  display: none !important;
+}
+
+
 
 /* swiper
 .testimonials-swiper {

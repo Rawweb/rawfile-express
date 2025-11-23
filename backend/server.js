@@ -9,6 +9,8 @@ connectDB();
 const trackingRoutes = require('./routes/trackingRoutes');
 const quoteRoutes = require('./routes/quoteRoutes');
 const adminAuthRoutes = require('./routes/adminAuthRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+const newsletterRoutes = require('./routes/newsletterRoutes');
 
 const app = express();
 
@@ -25,6 +27,8 @@ app.get('/', (req, res) => {
 // Public Routes
 app.use('/api/quote', quoteRoutes);
 app.use('/api/admin', adminAuthRoutes);
+app.use('/api/contact', contactRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 
 // Tracking Routes (public GET, protected POST/PATCH/DELETE inside file)
 app.use('/api/track', trackingRoutes);

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import api from "@lib/api";
-import { toast } from "sonner";
-import QuoteDetailsModal from "@components/pages/admin/QuoteDetailsModal";
-import ConfirmModal from "@components/common/ConfirmModal";
+import React, { useEffect, useState } from 'react';
+import api from '@lib/api';
+import { toast } from 'sonner';
+import QuoteDetailsModal from '@components/pages/admin/QuoteDetailsModal';
+import ConfirmModal from '@components/common/ConfirmModal';
 
 const AllQuotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -23,7 +23,7 @@ const AllQuotes = () => {
       setQuotes(res.quotes);
       setPages(res.pages);
     } catch (err) {
-      toast.error("Unable to load quotes");
+      toast.error('Unable to load quotes');
     }
     setLoading(false);
   };
@@ -36,15 +36,15 @@ const AllQuotes = () => {
   const toggleContact = async (id, contacted) => {
     try {
       await api.quote.markContacted(id, !contacted);
-      toast.success("Updated");
+      toast.success('Updated');
       loadQuotes();
     } catch {
-      toast.error("Failed to update");
+      toast.error('Failed to update');
     }
   };
 
   // Open delete modal
-  const openDeleteModal = (id) => {
+  const openDeleteModal = id => {
     setDeleteTarget(id);
     setConfirmOpen(true);
   };
@@ -55,10 +55,10 @@ const AllQuotes = () => {
 
     try {
       await api.quote.deleteQuote(deleteTarget);
-      toast.success("Quote deleted");
+      toast.success('Quote deleted');
       loadQuotes();
     } catch (err) {
-      toast.error("Failed to delete quote");
+      toast.error('Failed to delete quote');
     }
 
     setConfirmOpen(false);
@@ -67,14 +67,31 @@ const AllQuotes = () => {
 
   return (
     <section className="container py-20">
-      <div className="bg-primary-dark text-secondary-light p-10">
-        <h1 className="text-2xl font-semibold mb-6">Quote Requests</h1>
+      <div className="bg-primary-dark text-secondary-light p-10 sm:p-12 lg:p-16 border-2 border-secondary-light/20">
+        {/* HEADER */}
+        <div className="text-center mb-10 space-y-3">
+          <p className="text-xs sm:text-sm bg-secondary-light/20 px-2 py-1 border-l-4 border-primary-yellow w-fit mx-auto">
+            Admin • Quotes
+          </p>
+          <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl">
+            All Quotes
+          </h1>
+          <p className="text-gray-400 text-sm md:text-base md:max-w-2xl mx-auto">
+            View and manage every quotes in the system.
+          </p>
+        </div>
 
         {loading && <p>Loading...</p>}
 
         <div className="grid gap-5">
+          {!loading && quotes.length === 0 && (
+            <p className="text-center text-gray-400 col-span-full">
+              No quotes found.
+            </p>
+          )}
+
           {!loading &&
-            quotes.map((q) => (
+            quotes.map(q => (
               <div
                 key={q._id}
                 className="p-5 border border-secondary-light/20 bg-primary-light/10 rounded"
@@ -89,11 +106,11 @@ const AllQuotes = () => {
                   <span
                     className={
                       q.contacted
-                        ? "px-3 py-1 bg-green-500/20 text-green-400 rounded text-xs"
-                        : "px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs"
+                        ? 'px-3 py-1 bg-green-500/20 text-green-400 rounded text-xs'
+                        : 'px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs'
                     }
                   >
-                    {q.contacted ? "Contacted" : "Pending"}
+                    {q.contacted ? 'Contacted' : 'Pending'}
                   </span>
                 </div>
 
@@ -109,7 +126,7 @@ const AllQuotes = () => {
                     onClick={() => toggleContact(q._id, q.contacted)}
                     className="text-primary-yellow hover:underline"
                   >
-                    {q.contacted ? "Mark Uncontacted" : "Mark Contacted"}
+                    {q.contacted ? 'Mark Uncontacted' : 'Mark Contacted'}
                   </button>
 
                   <button
@@ -127,7 +144,7 @@ const AllQuotes = () => {
           <div className="flex justify-center gap-4 mt-10">
             <button
               disabled={page === 1}
-              onClick={() => setPage((p) => p - 1)}
+              onClick={() => setPage(p => p - 1)}
               className="px-4 py-2 bg-secondary-light/10 rounded"
             >
               Prev
@@ -135,7 +152,7 @@ const AllQuotes = () => {
 
             <button
               disabled={page === pages}
-              onClick={() => setPage((p) => p + 1)}
+              onClick={() => setPage(p => p + 1)}
               className="px-4 py-2 bg-secondary-light/10 rounded"
             >
               Next

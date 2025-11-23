@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TfiEmail } from 'react-icons/tfi';
 import { SlCallOut } from 'react-icons/sl';
 import { BsClockHistory } from 'react-icons/bs';
@@ -6,8 +6,45 @@ import contact1 from '@assets/contact-5.jpg';
 import contact2 from '@assets/contact-6.jpg';
 import contact3 from '@assets/contact-7.jpg';
 import contact4 from '@assets/contact-8.jpg';
+import ContactForm from '@components/common/ContactForm';
 
 const ContactSection = () => {
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  city: "",
+  message: "",
+});
+
+const handleChange = (e) =>
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("https://YOUR_SERVER_URL/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert("Message sent successfully!");
+    } else {
+      alert("Failed to send message");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong");
+  }
+};
+
+
+  
   return (
     <section className="py-20 bg-primary-dark text-secondary-light">
       <div className="container">
@@ -74,39 +111,7 @@ const ContactSection = () => {
 
           {/* Right Form */}
           <div className="w-full md:w-2/3">
-            <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="Your name*"
-                className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Email*"
-                className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-              />
-              <input
-                type="text"
-                placeholder="Phone Number*"
-                className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-              />
-              <input
-                type="text"
-                placeholder="City*"
-                className="w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-              />
-              <textarea
-                placeholder="Your Message"
-                rows="4"
-                className="sm:col-span-2 w-full p-3 bg-transparent border border-secondary-light/40 text-secondary-light placeholder-gray-400 focus:border-primary-yellow focus:outline-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="sm:col-span-2 bg-primary-yellow text-primary-dark font-medium px-8 py-3 hover:bg-yellow-400 transition-colors md:w-fit"
-              >
-                Submit Message
-              </button>
-            </form>
+            <ContactForm/>
           </div>
         </div>
 
