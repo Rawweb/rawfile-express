@@ -41,6 +41,8 @@ const Navbar = () => {
                   ? 'text-primary-yellow after:absolute after:-bottom-6 after:left-0 after:h-0.5 after:w-full after:bg-primary-yellow after:transition-all'
                   : 'text-secondary-light hover:text-primary-yellow'
               }`}
+
+             
             >
               {link.label}
             </Link>
